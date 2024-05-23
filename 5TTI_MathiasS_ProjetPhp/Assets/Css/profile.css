@@ -1,0 +1,14 @@
+.profile {
+    border-color: black;
+    border-radius: 2px;
+    border-style: solid;
+    margin: 10px;
+    padding: 2px;
+}
+button {
+    background-color: #060606;
+    border-color: #202020;
+    p {
+        color: rgb(167, 252, 255);
+    }
+}

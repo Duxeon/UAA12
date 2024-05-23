@@ -1,84 +1,61 @@
-
+/*Base du site*/
 * {
     margin: 0%;
-    padding: 0%;
-}
+    padding: 0%;}
 @font-face {
     font-family: honey;
-    src: url(/Assets/police/Honeycomb-Sharp.otf) 
-}
+    src: url(/Assets/police/Honeycomb-Sharp.otf) }
 body {
-    background-color: rgb(0, 48, 96);
+    background-color: rgb(5, 19, 54);
     min-height: 100%;
-}
-
+    min-width: 100%;}
+main {
+    min-height: 200%;}
 p {
-    color: white;
-}
+    color: white;}
 h1{
-    color: white;
-    font-family: honey;
-}
+    color: white;}
 h2{
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+    color: white;}
+h3{
+    color: white;}
 span{
-    color: white;
-}
-
-/* Components */
+    color: white;}
+    
+    /* éléments des navbar*/
 .imageIcon {
     width: 30px;
-    height: 30px;
-}
-.darkButton {
-    background-color: rgb(0, 16, 32);
-}
-.pageUsers {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.labelUsers {
-    margin: 5px;
-    padding: 5px;
-}
+    height: 30px;}
+.littleIcon {
+    width: 15px;
+    height: 15px;}
 .navBar {
-    background-color: rgb(0, 32, 64);
+    background-color: rgb(6, 6, 33);
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
+    align-items: center;}
 .UNavBer {
     width: 200px;
     height: 50px;
     display: flex;
     justify-content: space-evenly; 
-    align-items: center;
+    align-items: center;}
+.titre {
+    font-weight: bolder;
+    font-size: xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* Pages pricipales*/
-.card {
-    border: 1px solid black;
-    width: 300px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.profileCard {
-    border: 1px solid black;
-    width: 500px;
-    height: 250px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; 
-    align-items: center;
-}
+/*Couleur des Grades Membres*/
+.dux {
+    color: red;}
+.adm {
+    color: yellow;}
+.mod {
+    color: green;}
+.usr {
+    color: white;}
+.mut { 
+    color: gray;}

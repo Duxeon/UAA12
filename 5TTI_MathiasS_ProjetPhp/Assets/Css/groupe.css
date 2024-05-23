@@ -1,0 +1,47 @@
+.button {
+    background-color: #060606;
+    border-color: #202020;
+    p {
+        color: rgb(167, 252, 255);
+    }
+}
+.pageGroupe {
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.listeSalon {
+    min-width: 20%;
+    background-color: rgb(6, 6, 33);
+    a {
+        color: rgb(6, 6, 33);
+    }
+}
+
+.message {
+    width: 400px;
+    border-color: black;
+    border-radius: 5px;
+    border-style: double;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.messtop {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    a {
+        color: rgb(5, 19, 54);
+    }
+}
+.bottomSalon {
+    color: rgb(6, 6, 33);
+    margin-bottom: 230%;
+}
+
+.Groupe {
+    font-weight: bolder;
+    font-size: xx-large;
+}

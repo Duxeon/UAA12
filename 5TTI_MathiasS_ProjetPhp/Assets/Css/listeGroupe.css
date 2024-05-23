@@ -1,0 +1,26 @@
+.newG {
+    margin: 10px;
+    background-color: rgb(34, 53, 53);
+    border-color: black;
+    p {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: larger;
+    }
+}
+
+.groupe {
+    border-color: black;
+    border-radius: 2px;
+    border-style: solid;
+    height: 100px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 2px;
+}
+.entrer {
+    background-color: darkslategray;
+    border-color: black;
+    }

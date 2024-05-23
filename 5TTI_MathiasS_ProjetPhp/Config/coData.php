@@ -1,8 +1,8 @@
 <?php
     try {
-        $strConnection = "mysql:host=10.10.51.98;dbname=mathias";
+        $strConnection = "mysql:host=127.0.0.1;dbname=socieon";
 
-        $pdo=new PDO($strConnection, "mathias", "root", [
+        $pdo=new PDO($strConnection, "root", "root", [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
         ]);

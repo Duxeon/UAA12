@@ -1,7 +1,7 @@
 <?php
 function CalcTri($a, $b, $c) {
 
-    if ($a>=$b && $a>=$c) {
+    if ($a>=$b && $a>=$c) { // si a 
         $pg = $a;
         $c1 = $b;
         $c2 = $c;
