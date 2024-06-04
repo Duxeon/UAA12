@@ -9,7 +9,11 @@
                 <option value="0">Invisible</option>
                 <option value="1">Visible</option>
             </select>
-            <input label="GroupeDesc" required="true" maxlength="255" type="text" name="GroupeDesc" placeholder="Decription du Groupe">
+            <input label="GroupeDesc" required="true" maxlength="255" type="text" name="GroupeDesc" placeholder="Decription du Groupe"><select name="GroupeVisible">
+            <select name="GroupePegi">
+                <option value="0">Pas de Censure des gros mots</option>
+                <option value="1">Censure des gros mots</option>
+            </select>
         </label>                
     </div>
     <button type="submit" name="GroupeEnvoi"><p>Créer</p></button>

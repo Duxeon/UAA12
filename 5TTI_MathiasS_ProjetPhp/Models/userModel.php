@@ -1,15 +1,27 @@
 <?php
-function createUser($pdo) {
+function createUser($pdo,$banword) {
     try {
+        $newmess = $_POST["id"];
+        $newmesss = $_POST["username"];
+        $nmess = $_POST["id"];
+        $nmesss = $_POST["username"];
+        foreach ($banword as $ban) 
+        {
+            $newmess = str_replace($ban, "*", strtolower($newmess));
+            $newmesss = str_replace($ban, "*", strtolower($newmesss));
+        }
+        if($newmesss == strtolower($_POST["username"])) {
+            $newmesss = $_POST["username"];
+        }
         $query = 'insert into users(userId, userPassword, userRank, userBirth, userName) 
         values (:userId, :userPassword, :userRank, :userBirth, :userName)';
         $addUser = $pdo->prepare($query); 
         $addUser->execute([
-            'userId' => $_POST["id"],
+            'userId' => $newmess,
             'userPassword' => $_POST["password"],
             'userRank' => 'usr',
             'userBirth' => $_POST["naissance"],
-            'userName' => $_POST["username"]
+            'userName' => $newmesss
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();

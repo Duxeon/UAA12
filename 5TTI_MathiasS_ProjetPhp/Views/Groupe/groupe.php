@@ -41,19 +41,35 @@
             <?php foreach ($messages as $message) : ?>
                 <?php $user=selectusermessage($pdo, $message->userId);
                 $membre=selectmembreinfo($pdo, $message->userId); 
-                $date = date_create($message->messageDate)?>
+                $date = date_create($message->messageDate);
+                $part = explode(":", $message->messageTexte);
+                if($part[0]=="http" || $part[0]=="https") :?>
                 <div class="message">
-                    <div class="messtop">
-                        <a href="/membre/<?= $user[0]->userId?>/<?=$_SESSION["groupe"]?>"><p class="<?=$membre[0]->membreRank ?>"><?= $user[0]->userName ?></p></a>
-                        <div style="display: flex;">
-                            <p><?= date_format($date,"d/m/y H:i"); ?></p>
-                            <?php if(($user[0]->userId==$_SESSION["user"]->userId) &&  $groupeGrade != "mut"|| $_SESSION["user"]->userId== "dux" || $_SESSION["user"]->userId=="adm" || $_SESSION["user"]->userId=="mod" || $groupeGrade== "dux" || $groupeGrade=="adm" || $groupeGrade=="mod"): ?>
-                                <a onclick="<?= $mess= $message->msgId ?>" onclick=\if (!confirm('Souhaitez vous vraiment supprimer le salon ? ')){ event.preventDefault(); }\" href='/destroyMess/<?= $mess ?>'><img class='littleIcon' src='/Assets/Images/suppress.png' alt='suppress'></a>;
-                            <?php endif ?>
+                        <div class="messtop">
+                            <a href="/membre/<?= $user[0]->userId?>/<?=$_SESSION["groupe"]?>"><p class="<?=$membre[0]->membreRank ?>"><?= $user[0]->userName ?></p></a>
+                            <div style="display: flex;">
+                                <p><?= date_format($date,"d/m/y H:i"); ?></p>
+                                <?php if(($user[0]->userId==$_SESSION["user"]->userId) &&  $groupeGrade != "mut"|| $_SESSION["user"]->userId== "dux" || $_SESSION["user"]->userId=="adm" || $_SESSION["user"]->userId=="mod" || $groupeGrade== "dux" || $groupeGrade=="adm" || $groupeGrade=="mod"): ?>
+                                    <a onclick="<?= $mess= $message->msgId ?>" onclick=\if (!confirm('Souhaitez vous vraiment supprimer le salon ? ')){ event.preventDefault(); }\" href='/destroyMess/<?= $mess ?>'><img class='littleIcon' src='/Assets/Images/suppress.png' alt='suppress'></a>;
+                                <?php endif ?>
+                            </div>
                         </div>
+                        <a href=<?= $message->messageTexte ?>><p><?= $message->messageTexte ?></p></a>
                     </div>
-                <p><?= $message->messageTexte ?></p>
-                </div>
+                <?php else : ?>
+                    <div class="message">
+                        <div class="messtop">
+                            <a href="/membre/<?= $user[0]->userId?>/<?=$_SESSION["groupe"]?>"><p class="<?=$membre[0]->membreRank ?>"><?= $user[0]->userName ?></p></a>
+                            <div style="display: flex;">
+                                <p><?= date_format($date,"d/m/y H:i"); ?></p>
+                                <?php if(($user[0]->userId==$_SESSION["user"]->userId) &&  $groupeGrade != "mut"|| $_SESSION["user"]->userId== "dux" || $_SESSION["user"]->userId=="adm" || $_SESSION["user"]->userId=="mod" || $groupeGrade== "dux" || $groupeGrade=="adm" || $groupeGrade=="mod"): ?>
+                                    <a onclick="<?= $mess= $message->msgId ?>" onclick=\if (!confirm('Souhaitez vous vraiment supprimer le salon ? ')){ event.preventDefault(); }\" href='/destroyMess/<?= $mess ?>'><img class='littleIcon' src='/Assets/Images/suppress.png' alt='suppress'></a>;
+                                <?php endif ?>
+                            </div>
+                        </div>
+                        <p><?= $message->messageTexte ?></p>
+                    </div>
+                <?php endif ?>
             <?php endforeach ?>
         </div>
     <?php endif ?>

@@ -58,7 +58,7 @@
         case '/inscription' :
             if (isset($_POST['username'])) 
             {
-                createUser($pdo);
+                createUser($pdo,$banword);
                 header("location:/connection");
             }
             $title = "Inscription - Sociéon";

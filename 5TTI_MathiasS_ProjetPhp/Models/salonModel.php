@@ -57,11 +57,16 @@ function selectmembreinfo($pdo, $userId) {
         die($message);
     }
 }
-function newMessage($pdo) {
+function newMessage($pdo, $banword) {
     try {
-        $test = "*Bite*";
-        $newmess = $_POST["newmess"];
-        $newmess = preg_replace($test, $newmess, "REDACTED");
+        $pegi = selectGroupeInfo($pdo);
+        if($pegi) {
+            $newmess = $_POST["newmess"];
+            $newmess = str_replace($banword , "*",strtolower($newmess));
+            if($newmess == strtolower($_POST["newmess"])) {
+                $newmess = $_POST["newmess"];
+            }
+        }
         date_default_timezone_set('Europe/Paris');
         $query = 'insert into message(userId, salonId, messageDate, messageTexte) 
         values (:userId, :salonId, :messageDate, :messageTexte)';

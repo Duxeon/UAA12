@@ -6,7 +6,7 @@
     require_once("Models/salonModel.php");
     if (str_starts_with($uri, "/groupe/")) {
         if (isset($_POST["newmess"])) {
-            newMessage($pdo);
+            newMessage($pdo, $banword);
         }
         $part = explode("/", $uri);
         $_SESSION["groupe"] = $part[2];
@@ -53,7 +53,7 @@
         if(selectMembreGrade($pdo) == "dux" || $_SESSION["user"]->userRank=="adm" || $_SESSION["user"]->userRank=="dux"){
             destroySalon($pdo);
         }
-        header("location:/GroupesRejoins");
+        header("location:/groupe/".$_SESSION["groupe"]);
     }
     if (str_starts_with($uri, "/destroyMess")) {
         $groupeGrade = selectMembreGrade($pdo);
